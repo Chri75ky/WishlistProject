@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mine ønskelister - Ønskesedlen</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
@@ -15,12 +15,14 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="/login">Log ind</a>
-            <a href="/signup">Opret profil</a>
+            <a href="/profile">Min profil</a>
+            <a href="/ønskelister">Mine ønskelister</a>
+            <a href="/browse">Browse</a>
+            <a href="/logout">Log ud</a>
         </div>
     </div>
     <div class="header-right">
-        <a href="/">Home</a>
+        <a href="/loggedindex">Home</a>
         <a href="/signup">Opret bruger</a>
         <a href="/login">Log ind</a>
     </div>
