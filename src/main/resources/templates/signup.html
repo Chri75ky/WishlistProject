@@ -26,6 +26,30 @@
     </div>
 </div>
 
+<section class="form-container">
+    <h1>Opret profil</h1>
+    <hr>
+
+    <form method="POST" action="/test">
+        <label for="email">E-mail</label>
+        <input id="email" placeholder="Indtast e-mail" type="text" name="email"/><br><br>
+        <label for="user-id">Brugernavn</label>
+        <input id="user-id" placeholder="Indtast brugernavn" type="text" name="user-id"><br><br>
+        <label for="password">Adgangskode</label>
+        <input id="password" placeholder="Indtast adgangskode" type="password" name="password"/><br><br>
+        <label for="password-check">Gentag adgangskode</label>
+        <input id="password-check" placeholder="Gentag adgangskode" type="password" name="password-check"/><br><br>
+
+        <label>
+            <input type="checkbox" name="accept" style="margin-bottom:15px"> Accepter betingelser
+        </label>
+
+        <button type="submit">Opret profil</button><br><br>
+        <p>Har du allerede en profil? <a href="/login" style="color:dodgerblue">Log ind</a></p>
+
+    </form>
+</section>
+
 <div class="footer">
     <a href="https://github.com/Lauribee">Laura Stroe</a>
     <a href="https://github.com/Chri75ky">Christian Henriksen</a>
