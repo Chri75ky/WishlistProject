@@ -51,11 +51,12 @@
     font-family: "Comic Sans MS";
     position: relative;
     left: 0;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     color: black;
     text-align: center;
     font-size: 12px;
+
 }
 
 /* Change the background color on mouse-over */
@@ -129,8 +130,19 @@
     margin-left: 150px;
     margin-right: 750px;
 
-
 }
+.signup-button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+
 
 /* __________________________________________________*/
 
