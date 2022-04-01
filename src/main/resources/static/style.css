@@ -122,13 +122,13 @@
 }
 
 .top-banner {
-
+    box-sizing: border-box;
 }
 
 .intro-box {
     float: left;
-    margin-left: 150px;
-    margin-right: 750px;
+    width: 50%;
+    padding: 100px;
 
 }
 .signup-button {
@@ -142,6 +142,17 @@
     opacity: 0.9;
 }
 
+.right-box img{
+    margin-top: 100px;
+    float: right;
+    width: 50%;
+
+}
+
+img {
+    width: 400px;
+    max-height: 400px;
+}
 
 
 /* __________________________________________________*/
