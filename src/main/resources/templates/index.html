@@ -8,24 +8,27 @@
     <title>Title</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
+
 <body>
-<div class="header">
+<header>
     <div class="dropdown">
         <button class="dropbtn">Menu
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content">
+        <header class="dropdown-content">
             <a href="/login">Log ind</a>
             <a href="/signup">Opret profil</a>
-        </div>
+        </header>
     </div>
+
     <div class="header-right">
         <a href="/" style="border-style: dashed">Home</a>
         <a href="/signup">Opret profil</a>
         <a href="/login">Log ind</a>
     </div>
-</div>
-<div class="top-banner">
+</header>
+
+    <section>
     <div class="intro-box">
         <h1 style="font-size: 48px">Velkommen til Ønskesedlen!</h1>
         <hr style="background-color: black">
@@ -34,19 +37,17 @@
          bredt udvalg af varer, opret en profil i dag!</p>
         <a href="/signup" class="signup-button">Opret profil</a>
         <hr style="background-color: black">
-
     </div>
 
     <div class="right-box">
         <img alt="ønskeseddel" src="billeder/ønskeseddel.jpg">
-
     </div>
+    </section>
 
-</div>
-
-<div class="footer">
+<footer>
     <a href="https://github.com/Lauribee">Laura Stroe</a>
     <a href="https://github.com/Chri75ky">Christian Henriksen</a>
-</div>
+</footer>
+
 </body>
 </html>
