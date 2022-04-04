@@ -8,8 +8,9 @@
     <title>Mine ønskelister - Ønskesedlen</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
+
 <body>
-<div class="header">
+<header>
     <div class="dropdown">
         <button class="dropbtn">Browse
             <i class="fa fa-caret-down"></i>
@@ -27,8 +28,8 @@
         <a href="/wishlist" style="border-style: dashed">Mine ønskelister</a>
         <a href="/index">Log ud</a>
     </div>
-</div>
 
+</header>
     <div class="wishlists">
         <button class="open-button" onclick="openForm()">Opret ønskeliste</button>
         <div class="wishlist-box">Min ønskeliste</div>
@@ -52,13 +53,11 @@
 
 
 
-
-
-
-<div class="footer">
+<footer>
     <a href="https://github.com/Lauribee">Laura Stroe</a>
     <a href="https://github.com/Chri75ky">Christian Henriksen</a>
-</div>
+</footer>
+
 <script>
     function openForm() {
         document.getElementById("myForm").style.display = "block";
@@ -68,6 +67,7 @@
         document.getElementById("myForm").style.display = "none";
     }
 </script>
+
 
 </body>
 </html>

@@ -1,14 +1,13 @@
 /* H E A D E R */
 /* Giver en lyseblå baggrund til headeren og tilføjer "padding" og giver fonten til headeren */
-.header {
+header {
     overflow: hidden;
     background-color: cadetblue;
     padding: 20px 10px;
-    font-family: "Comic Sans MS";
 }
 
 /* Style the header links */
-.header a {
+header a {
     float: left;
     color: black;
     text-align: center;
@@ -20,55 +19,45 @@
 }
 
 /* Style the logo link */
-.header a.home {
+header a.home {
     font-size: 25px;
     font-weight: bold;
 }
 
 /* Change the background color on mouse-over */
-.header a:hover {
+header a:hover {
     background-color: #ddd;
     color: black;
 }
 
 /* Style the active/current link*/
-.header a.lit {
+header a.lit {
     color: darkslateblue;
 }
 
 /* Float the link section to the right */
-.header-right {
+.header-right{
     float: right;
 }
 
 /* F O O T E R */
 /* Giver en baggrund til footer og tilføjer "padding" og giver fonten til footeren */
 /* Style footer */
-.footer {
-    overflow: hidden;
+footer {
     background-color: cadetblue;
-    padding: 40px 20px;
-    font-family: "Comic Sans MS";
-    position: relative;
-    left: 0;
-    bottom: 0px;
-    width: 100%;
+    padding: 50px;
     color: black;
     text-align: center;
-    font-size: 12px;
-
+    font-size: 15px;
+    left: 0;
+    width: 100%;
 }
 
-/* Change the background color on mouse-over */
-.footer hover {
-    background-color: #ddd;
-    color: black;
+body {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Style the active/current link*/
-.footer lit {
-    color: darkslateblue;
-}
 
 /*DROPDOWN MENU*/
 .dropdown {
@@ -121,14 +110,11 @@
     padding: 16px;
 }
 
-.top-banner {
-    box-sizing: border-box;
-}
-
 .intro-box {
     float: left;
     width: 50%;
     padding: 100px;
+    margin: 0;
 
 }
 .signup-button {
@@ -162,6 +148,7 @@
 }
 .right-box img{
     margin-top: 100px;
+    margin-bottom: 0;
     float: right;
     width: 50%;
 

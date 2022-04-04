@@ -9,22 +9,25 @@
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
-<div class="header">
+
+<header>
     <div class="dropdown">
         <button class="dropbtn">Menu
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content">
+        <header class="dropdown-content">
             <a href="/login">Log ind</a>
             <a href="/signup">Opret profil</a>
-        </div>
+        </header>
     </div>
+
     <div class="header-right">
-        <a href="/">Home</a>
+        <a href="/" style="border-style: dashed">Home</a>
         <a href="/signup">Opret profil</a>
-        <a href="/login" style="border-style: dashed">Log ind</a>
+        <a href="/login">Log ind</a>
     </div>
-</div>
+</header>
+
 
 <section class="form-container">
     <h1>Log ind</h1>
@@ -44,9 +47,9 @@
     </form>
 </section>
 
-<div class="footer">
+<footer>
     <a href="https://github.com/Lauribee">Laura Stroe</a>
     <a href="https://github.com/Chri75ky">Christian Henriksen</a>
-</div>
+</footer>
 </body>
 </html>
