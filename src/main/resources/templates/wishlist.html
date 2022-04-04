@@ -28,17 +28,30 @@
         <a href="/index">Log ud</a>
     </div>
 </div>
-<div class="top-banner">
+
     <div class="wishlists">
-    <a href="/wishlist-create">
-        <div class="wishlist-box">Opret ønskeliste<br><span style="font-size: 40px">&#43;</span></div>
-    </a>
+        <button class="open-button" onclick="openForm()">Opret ønskeliste</button>
         <div class="wishlist-box">Min ønskeliste</div>
     </div>
 
 
+<div class="form-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+        <h1>Opret ønskeliste</h1>
 
+        <label for="wishlist-name"><b>Navn</b></label>
+        <input id="wishlist-name" type="text" placeholder="Indtast ønskeliste navn" name="wishlist-name" required>
+
+        <label for="wishlist-description"><b>Beskrivelse</b></label>
+        <input id="wishlist-description" type="text" placeholder="Indtast beskrivelse" name="wishlist-description">
+
+        <button type="submit" class="btn">Opret ønskeliste</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Luk</button>
+    </form>
 </div>
+
+
+
 
 
 
@@ -46,5 +59,15 @@
     <a href="https://github.com/Lauribee">Laura Stroe</a>
     <a href="https://github.com/Chri75ky">Christian Henriksen</a>
 </div>
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+
 </body>
 </html>
