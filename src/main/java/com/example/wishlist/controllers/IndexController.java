@@ -1,7 +1,10 @@
 package com.example.wishlist.controllers;
 
+import com.example.wishlist.services.InfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class IndexController {
@@ -30,7 +33,7 @@ public class IndexController {
     }
 
     @GetMapping("/logged")
-    public String loggedindex(){
+    public String logged(){
         return "logged";
     }
 
@@ -58,4 +61,5 @@ public class IndexController {
     public String categorySport(){
         return "category-sport";
     }
+
 }
