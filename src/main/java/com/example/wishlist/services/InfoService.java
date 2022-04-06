@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class InfoService {
     private final UserRepository ur = new UserRepository();
 
+//-----------------------------USERS-------------------------------------------//
     //validate user
 public boolean isUserValid(String email, String password, String passwordToCheck) {
     return isEmailValid(email) && isPasswordValid(password, passwordToCheck);
@@ -37,4 +38,5 @@ public boolean isPasswordValid(String password, String passwordToCheck) {
         return passwordToCheck.equals(userPassword);
 
     }
+//----------------------------------WISHLIST-----------------------------//
 }
