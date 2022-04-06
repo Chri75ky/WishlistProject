@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
+import java.sql.SQLException;
+
 @Controller
 public class UserController {
     UserRepository ur = new UserRepository();
@@ -20,6 +22,24 @@ public class UserController {
             ur.insertuser(userTest);
             return "redirect:/logged";
         } else return "redirect:/signup";
+    }
+
+    @PostMapping("/profile")
+    public String login(WebRequest dataFromForm) throws SQLException {
+        InfoService i = new InfoService();
+
+        String emailToCheck = dataFromForm.getParameter("email");
+        String passwordToCheck = dataFromForm.getParameter("password");
+
+        if(i.isEmailValid(emailToCheck)) {
+            if(i.isEmailInDatabase(emailToCheck)) {
+                if(i.checkPassword(passwordToCheck, emailToCheck)) {
+                    return "redirect:/logged";
+                }
+            }
+        }
+
+        return "redirect:/login";
     }
 
 }
