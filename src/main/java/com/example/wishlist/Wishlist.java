@@ -27,4 +27,12 @@ public class Wishlist {
     public void setWishlistDescription(String wishlistDescription) {
         this.wishlistDescription = wishlistDescription;
     }
+
+    @Override
+    public String toString() {
+        return "Wishlist{" +
+                "wishlistName='" + wishlistName + '\'' +
+                ", wishlistDescription='" + wishlistDescription + '\'' +
+                '}';
+    }
 }
