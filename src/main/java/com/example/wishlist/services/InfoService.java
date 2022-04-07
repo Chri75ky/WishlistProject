@@ -33,7 +33,7 @@ public boolean isPasswordValid(String password, String passwordToCheck) {
         return false;
     }
 
-    public boolean checkPassword(String passwordToCheck, String checkedEmail) {
+    public boolean checkPassword(String passwordToCheck, String checkedEmail) throws SQLException {
         String userPassword = ur.getPasswordFromUserDB(checkedEmail);
         return passwordToCheck.equals(userPassword);
 

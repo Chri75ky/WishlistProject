@@ -9,14 +9,18 @@ public class WishlistRepo {
 
     private Connection con;
     PreparedStatement pps;
-    private final String url = "jdbc:mysql://localhost:3306/wishlist";
+    private final String url = "jdbc:mysql://full-stack-project.mysql.database.azure.com:3306/?user=PlaceholderName";
 
     public void insertWishlist(Wishlist wishlist) {
         try {
-            con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+            con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
 
-            String query = " INSERT INTO user_wishlist (wishlist_name, wishlist_description, user_id)" + " VALUES (?, ?, ?)";
+            String query = " USE wishlist";
+            pps = con.prepareStatement(query);
+            pps.execute();
 
+
+            query = " INSERT INTO user_wishlist (wishlist_name, wishlist_description, user_id)" + " VALUES (?, ?, ?)";
             pps = con.prepareStatement(query);
             pps.setString(1, wishlist.getWishlistName());
             pps.setString(2, wishlist.getWishlistDescription());
@@ -35,13 +39,18 @@ public class WishlistRepo {
 
 
     public ArrayList<Wishlist> getWishlistFromDB(int userID) throws SQLException {
-        String query = " SELECT * FROM user_wishlist" + " WHERE user_id =" + " '" + userID + "'";
+        con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
+
+        String query = " USE wishlist";
+        pps = con.prepareStatement(query);
+        pps.execute();
+
+        query = " SELECT * FROM user_wishlist" + " WHERE user_id =" + " '" + userID + "'";
 
         int wishlistID = 0;
         String wishlistName = null;
         String wishlistDescription = null;
         ArrayList<Wishlist> userWishlists = new ArrayList<>();
-        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {

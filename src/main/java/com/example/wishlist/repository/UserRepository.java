@@ -9,14 +9,19 @@ public class UserRepository {
 
     private Connection con;
     PreparedStatement pps;
-    private final String url = "jdbc:mysql://localhost:3306/wishlist";
+    private final String url = "jdbc:mysql://full-stack-project.mysql.database.azure.com:3306/?user=PlaceholderName";
 
     public void insertuser(User user) {
         try {
-            con = DriverManager.getConnection(url, "root", "Ced72vbq.");
 
-            String query = " INSERT INTO users (username, email, password)" + " VALUES (?, ?, ?)";
+            con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
 
+            String query = " USE wishlist";
+            pps = con.prepareStatement(query);
+            pps.execute();
+
+
+            query = " INSERT INTO users (username, email, password)" + " VALUES (?, ?, ?)";
             pps = con.prepareStatement(query);
             pps.setString(1, user.getUsername());
             pps.setString(2, user.getEmail());
@@ -34,10 +39,14 @@ public class UserRepository {
     }
 
     public ArrayList<String> getEmailsFromUsers() throws SQLException {
-        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+        con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
+
+        String query = " USE wishlist";
+        pps = con.prepareStatement(query);
+        pps.execute();
 
         ArrayList<String> emails = new ArrayList<>();
-        String query = "SELECT email FROM users";
+        query = "SELECT email FROM users";
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -55,9 +64,15 @@ public class UserRepository {
     }
 
     public User getUserFromDB(String userEmail) throws SQLException {
-        String query = " SELECT * FROM users" + " WHERE email =" + " '" + userEmail + "'";
+        con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
+
+        String query = " USE wishlist";
+        pps = con.prepareStatement(query);
+        pps.execute();
+
+        query = " SELECT * FROM users" + " WHERE email =" + " '" + userEmail + "'";
         User currentUser = null;
-        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -75,9 +90,15 @@ public class UserRepository {
     }
 
     public int getUserIdFromDB(String userEmail) throws SQLException {
-        String query = " SELECT user_id FROM users" + " WHERE email =" + " '" + userEmail + "'";
+        con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
+
+        String query = " USE wishlist";
+        pps = con.prepareStatement(query);
+        pps.execute();
+
+        query = " SELECT user_id FROM users" + " WHERE email =" + " '" + userEmail + "'";
         int user_id = 0;
-        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -91,8 +112,14 @@ public class UserRepository {
         return user_id;
     }
 
-    public String getPasswordFromUserDB(String userEmail) {
-        String query = " SELECT password FROM users" + " WHERE email =" + " '" + userEmail + "'";
+    public String getPasswordFromUserDB(String userEmail) throws SQLException {
+        con = DriverManager.getConnection(url, "PlaceholderName", "Passw0rd");
+
+        String query = " USE wishlist";
+        pps = con.prepareStatement(query);
+        pps.execute();
+
+        query = " SELECT password FROM users" + " WHERE email =" + " '" + userEmail + "'";
 
         String userPassword = null;
         try (Statement stmt = con.createStatement()) {
