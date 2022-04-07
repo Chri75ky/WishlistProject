@@ -1,5 +1,6 @@
 package com.example.wishlist.services;
 
+import com.example.wishlist.Wishlist;
 import com.example.wishlist.repository.UserRepository;
 
 import java.sql.SQLException;
@@ -39,6 +40,7 @@ public boolean isPasswordValid(String password, String passwordToCheck) {
 
     }
 //----------------------------------WISHLIST-----------------------------//
+
 
 
 
