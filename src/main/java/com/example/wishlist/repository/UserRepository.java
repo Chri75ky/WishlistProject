@@ -2,7 +2,6 @@ package com.example.wishlist.repository;
 
 import com.example.wishlist.User;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -10,11 +9,11 @@ public class UserRepository {
 
     private Connection con;
     PreparedStatement pps;
+    private final String url = "jdbc:mysql://localhost:3306/wishlist";
 
     public void insertuser(User user) {
         try {
-            String url = "jdbc:mysql://localhost:3306/wishlist";
-            con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+            con = DriverManager.getConnection(url, "root", "edx43tfq");
 
             String query = " INSERT INTO users (username, email, password)" + " VALUES (?, ?, ?)";
 
@@ -35,8 +34,7 @@ public class UserRepository {
     }
 
     public ArrayList<String> getEmailsFromUsers() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/wishlist";
-        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+        con = DriverManager.getConnection(url, "root", "edx43tfq");
 
         ArrayList<String> emails = new ArrayList<>();
         String query = "SELECT email FROM users";
@@ -55,6 +53,7 @@ public class UserRepository {
         }
         return emails;
     }
+
 
     public String getPasswordFromUserDB(String userEmail) {
         String query = " SELECT password FROM users" + " WHERE email =" + " '" + userEmail + "'";
