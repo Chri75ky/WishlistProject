@@ -34,13 +34,14 @@ public class WishlistRepo {
     }
 
 
-    public ArrayList<Wishlist> getWishlistFromDB(int userID) {
-        String query = " SELECT * FROM user_wishlist" + " WHERE wishlist_id =" + " '" + userID + "'";
+    public ArrayList<Wishlist> getWishlistFromDB(int userID) throws SQLException {
+        String query = " SELECT * FROM user_wishlist" + " WHERE user_id =" + " '" + userID + "'";
 
         int wishlistID = 0;
         String wishlistName = null;
         String wishlistDescription = null;
-        ArrayList<Wishlist> userWishlists = null;
+        ArrayList<Wishlist> userWishlists = new ArrayList<>();
+        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -48,7 +49,7 @@ public class WishlistRepo {
                 wishlistName = rs.getString("wishlist_name");
                 wishlistDescription = rs.getString("wishlist_description");
                 Wishlist wishlistFromDB = new Wishlist(wishlistID, wishlistName,wishlistDescription);
-
+                userWishlists.add(wishlistFromDB);
             }
         } catch (SQLException e) {
             System.err.println("GOT AN EXCEPTION!");

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 
@@ -32,10 +32,8 @@
 </header>
     <div class="wishlists">
         <button class="open-button" onclick="openForm()">Opret ønskeliste</button>
-        <div class="wishlist-box">
-            <tr th:each="name : ${userWishlists}">
-                <td th:text="${name.wishlistName}"
-            </tr>
+        <div class="wishlist-box" th:each="wishlist : ${userWishlists}">
+            <p th:text="${wishlist.wishlistName}"></p>
         </div>
 
     </div>

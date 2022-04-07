@@ -38,6 +38,7 @@ public class WishlistController {
         User currentUser = (User) session.getAttribute("current-user");
         int userId = ur.getUserIdFromDB(currentUser.getEmail());
         ArrayList<Wishlist> userWishlists= wr.getWishlistFromDB(userId);
+        System.out.println(userWishlists.size());
 
 
         model.addAttribute("userWishlists", userWishlists);
