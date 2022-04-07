@@ -53,7 +53,24 @@ public class UserRepository {
         }
         return emails;
     }
-
+    public User getUserFromDB(String userEmail) {
+        String query = " SELECT * FROM users" + " WHERE email =" + " '" + userEmail + "'";
+        User currentUser = null;
+        try (Statement stmt = con.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                int user_id = rs.getInt("user_id");
+                String username = rs.getString("username");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                currentUser = new User(username, email, password);
+            }
+        } catch (SQLException e) {
+            System.err.println("GOT AN EXCEPTION");
+            System.err.println(e);
+        }
+        return currentUser;
+    }
 
     public String getPasswordFromUserDB(String userEmail) {
         String query = " SELECT password FROM users" + " WHERE email =" + " '" + userEmail + "'";
