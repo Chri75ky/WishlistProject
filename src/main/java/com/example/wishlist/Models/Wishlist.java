@@ -1,13 +1,15 @@
-package com.example.wishlist;
+package com.example.wishlist.Models;
 
 
 public class Wishlist {
 
+    private int userID;
     private String wishlistName;
     private String wishlistDescription;
 
     //konstruktør
-    public Wishlist(String wishlistName, String wishlistDescription) {
+    public Wishlist(int userID, String wishlistName, String wishlistDescription) {
+        this.userID = userID;
         this.wishlistName = wishlistName;
         this.wishlistDescription = wishlistDescription;
     }
@@ -26,6 +28,10 @@ public class Wishlist {
 
     public void setWishlistDescription(String wishlistDescription) {
         this.wishlistDescription = wishlistDescription;
+    }
+
+    public int getUserID() {
+        return userID;
     }
 
     @Override

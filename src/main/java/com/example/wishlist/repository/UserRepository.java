@@ -1,6 +1,6 @@
 package com.example.wishlist.repository;
 
-import com.example.wishlist.User;
+import com.example.wishlist.Models.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class UserRepository {
 
     public void insertuser(User user) {
         try {
-            con = DriverManager.getConnection(url, "root", "edx43tfq");
+            con = DriverManager.getConnection(url, "root", "Ced72vbq.");
 
             String query = " INSERT INTO users (username, email, password)" + " VALUES (?, ?, ?)";
 
@@ -34,7 +34,7 @@ public class UserRepository {
     }
 
     public ArrayList<String> getEmailsFromUsers() throws SQLException {
-        con = DriverManager.getConnection(url, "root", "edx43tfq");
+        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
 
         ArrayList<String> emails = new ArrayList<>();
         String query = "SELECT email FROM users";
@@ -53,13 +53,15 @@ public class UserRepository {
         }
         return emails;
     }
-    public User getUserFromDB(String userEmail) {
+
+    public User getUserFromDB(String userEmail) throws SQLException {
         String query = " SELECT * FROM users" + " WHERE email =" + " '" + userEmail + "'";
         User currentUser = null;
+        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
-                int user_id = rs.getInt("user_id");
+                int userId = rs.getInt("user_id");
                 String username = rs.getString("username");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
@@ -67,9 +69,26 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             System.err.println("GOT AN EXCEPTION");
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
         return currentUser;
+    }
+
+    public int getUserIdFromDB(String userEmail) throws SQLException {
+        String query = " SELECT user_id FROM users" + " WHERE email =" + " '" + userEmail + "'";
+        int user_id = 0;
+        con = DriverManager.getConnection(url, "root", "Ced72vbq.");
+        try (Statement stmt = con.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                user_id = rs.getInt("user_id");
+
+            }
+        } catch (SQLException e) {
+            System.err.println("GOT AN EXCEPTION");
+            System.err.println(e);
+        }
+        return user_id;
     }
 
     public String getPasswordFromUserDB(String userEmail) {

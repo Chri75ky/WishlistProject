@@ -1,6 +1,6 @@
 package com.example.wishlist.controllers;
 
-import com.example.wishlist.User;
+import com.example.wishlist.Models.User;
 import com.example.wishlist.repository.UserRepository;
 import com.example.wishlist.services.InfoService;
 import org.springframework.stereotype.Controller;

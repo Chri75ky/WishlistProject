@@ -1,6 +1,6 @@
 package com.example.wishlist.repository;
 
-import com.example.wishlist.Wishlist;
+import com.example.wishlist.Models.Wishlist;
 
 import java.sql.*;
 
@@ -12,13 +12,14 @@ public class WishlistRepo {
 
     public void insertWishlist(Wishlist wishlist) {
         try {
-            con = DriverManager.getConnection(url, "root", "edx43tfq");
+            con = DriverManager.getConnection(url, "root", "Ced72vbq.");
 
-            String query = " INSERT INTO user_wishlist (wishlist_name, wishlist_description)" + " VALUES (?, ?)";
+            String query = " INSERT INTO user_wishlist (wishlist_name, wishlist_description, user_id)" + " VALUES (?, ?, ?)";
 
             pps = con.prepareStatement(query);
             pps.setString(1, wishlist.getWishlistName());
             pps.setString(2, wishlist.getWishlistDescription());
+            pps.setInt(3, wishlist.getUserID());
 
             pps.execute();
 
@@ -32,7 +33,7 @@ public class WishlistRepo {
     }
 
 
-    public Wishlist getWishlistFromDB(String userID) {
+    public Wishlist getWishlistFromDB(int userID) {
         String query = " SELECT * FROM user_wishlist" + " WHERE wishlist_id =" + " '" + userID + "'";
 
         int wishlistID = 0;
@@ -50,7 +51,7 @@ public class WishlistRepo {
             System.err.println("GOT AN EXCEPTION!");
             System.err.println(e.getMessage());
         }
-        Wishlist wishlistFromDB = new Wishlist(wishlistName,wishlistDescription);
+        Wishlist wishlistFromDB = new Wishlist(wishlistID, wishlistName,wishlistDescription);
         return wishlistFromDB;
 
     }
