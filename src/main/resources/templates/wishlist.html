@@ -32,6 +32,12 @@
 </header>
     <div class="wishlists">
         <button class="open-button" onclick="openForm()">Opret ønskeliste</button>
+        <div class="wishlist-box">
+            <tr th:each="name : ${userWishlists}">
+                <td th:text="${name.wishlistName}"
+            </tr>
+        </div>
+
     </div>
 
 
@@ -41,7 +47,6 @@
 
         <label for="wishlist-name"><b>Navn</b></label>
         <input id="wishlist-name" type="text" placeholder="Indtast ønskeliste navn" name="wishlist-name" required>
-
         <label for="wishlist-description"><b>Beskrivelse</b></label>
         <input id="wishlist-description" type="text" placeholder="Indtast beskrivelse" name="wishlist-description">
 

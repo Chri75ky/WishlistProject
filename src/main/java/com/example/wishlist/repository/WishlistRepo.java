@@ -3,6 +3,7 @@ package com.example.wishlist.repository;
 import com.example.wishlist.Models.Wishlist;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class WishlistRepo {
 
@@ -33,26 +34,28 @@ public class WishlistRepo {
     }
 
 
-    public Wishlist getWishlistFromDB(int userID) {
+    public ArrayList<Wishlist> getWishlistFromDB(int userID) {
         String query = " SELECT * FROM user_wishlist" + " WHERE wishlist_id =" + " '" + userID + "'";
 
         int wishlistID = 0;
         String wishlistName = null;
         String wishlistDescription = null;
+        ArrayList<Wishlist> userWishlists = null;
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 wishlistID = rs.getInt("wishlist_id");
                 wishlistName = rs.getString("wishlist_name");
                 wishlistDescription = rs.getString("wishlist_description");
+                Wishlist wishlistFromDB = new Wishlist(wishlistID, wishlistName,wishlistDescription);
 
             }
         } catch (SQLException e) {
             System.err.println("GOT AN EXCEPTION!");
             System.err.println(e.getMessage());
         }
-        Wishlist wishlistFromDB = new Wishlist(wishlistID, wishlistName,wishlistDescription);
-        return wishlistFromDB;
+
+        return userWishlists;
 
     }
 }

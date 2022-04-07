@@ -4,6 +4,8 @@ import com.example.wishlist.Models.User;
 import com.example.wishlist.repository.UserRepository;
 import com.example.wishlist.services.InfoService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
@@ -52,4 +54,14 @@ public class UserController {
         return "redirect:/login";
     }
 
+    @GetMapping("/profile")
+    public String profile(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User currentUser = (User) session.getAttribute("current-user");
+        model.addAttribute("username", currentUser.getUsername());
+        model.addAttribute("email", currentUser.getEmail());
+        model.addAttribute("password", currentUser.getPassword());
+        return "profile";
+    }
 }
+

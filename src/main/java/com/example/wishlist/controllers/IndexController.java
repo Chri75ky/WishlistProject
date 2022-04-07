@@ -1,6 +1,7 @@
 package com.example.wishlist.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -11,17 +12,8 @@ public class IndexController {
     return "index";
 }
     @GetMapping("/signup")
-    public String signup(){
-    return "signup";
-}
-    @GetMapping("/profile")
-    public String profile(){
-    return "profile";
-}
-
-    @GetMapping("/wishlist")
-    public String wishlist(){
-        return "wishlist";
+    public String signup() {
+        return "signup";
     }
 
     @GetMapping("/login")

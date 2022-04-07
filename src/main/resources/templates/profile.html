@@ -30,13 +30,13 @@
     </div>
 </header>
 <div style="text-align: center">
-    <h1>Velkommen bruger!</h1>
+    <h1>Velkommen <p th:text="${username}"></p></h1>
     <p>Brugernavn:</p>
-    <p>Indsæt brugernavn her</p><br>
+    <p th:text="${username}"></p><br>
     <p>Email:</p>
-    <p>Indsæt email her</p><br>
+    <p th:text="${email}"></p><br>
     <p>Adgangskode:</p>
-    <p>Indsæt adgangskode her</p>
+    <p th:text="${password}"></p>
 
 
 
