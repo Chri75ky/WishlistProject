@@ -32,7 +32,6 @@ public class WishlistRepo {
     }
 
 
-
     public Wishlist getWishlistFromDB(String userID) {
         String query = " SELECT * FROM user_wishlist" + " WHERE wishlist_id =" + " '" + userID + "'";
 
