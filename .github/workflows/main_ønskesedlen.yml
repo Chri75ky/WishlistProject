@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'Ønskesedlen'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D6243EFB37046CE817F0A3AA6CCA950 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '*.jar'
